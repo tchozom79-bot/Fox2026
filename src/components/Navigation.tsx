@@ -5,9 +5,10 @@ import { Link, useLocation } from "react-router-dom";
 
 interface NavigationProps {
   onOpenGetApp: () => void;
+  canInstall?: boolean;
 }
 
-export function Navigation({ onOpenGetApp }: NavigationProps) {
+export function Navigation({ onOpenGetApp, canInstall }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -44,7 +45,7 @@ export function Navigation({ onOpenGetApp }: NavigationProps) {
             onClick={onOpenGetApp}
             className="hidden sm:block bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm tracking-wide shadow-lg shadow-primary/20"
           >
-            Get the App
+            {canInstall ? "Install stories" : "Get the App"}
           </motion.button>
           
           <motion.button 
@@ -111,7 +112,7 @@ export function Navigation({ onOpenGetApp }: NavigationProps) {
                   }}
                   className="w-full bg-primary text-on-primary py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/20"
                 >
-                  Get the App
+                  {canInstall ? "Install stories" : "Get the App"}
                 </button>
                 <div className="flex gap-4 justify-center">
                   <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-60">

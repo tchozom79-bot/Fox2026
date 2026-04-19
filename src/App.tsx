@@ -42,9 +42,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <Layout onOpenGetApp={handleInstall}>
+      <Layout onOpenGetApp={handleInstall} canInstall={!!deferredPrompt}>
         <Routes>
-          <Route path="/" element={<HomePage onOpenGetApp={handleInstall} />} />
+          <Route path="/" element={<HomePage onOpenGetApp={handleInstall} canInstall={!!deferredPrompt} />} />
           <Route path="/feature" element={<FeaturePage />} />
           <Route path="/story" element={<StoryPage />} />
           <Route path="/about" element={<AboutPage />} />

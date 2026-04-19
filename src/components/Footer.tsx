@@ -39,9 +39,15 @@ export function Footer() {
         </nav>
 
         <div className="flex gap-6">
-          <Instagram className="w-6 h-6 text-primary opacity-80 hover:opacity-100 cursor-pointer transition-all" />
-          <Youtube className="w-6 h-6 text-primary opacity-80 hover:opacity-100 cursor-pointer transition-all" />
-          <AtSign className="w-6 h-6 text-primary opacity-80 hover:opacity-100 cursor-pointer transition-all" />
+          <a href="https://instagram.com/stories" target="_blank" rel="noreferrer">
+            <Instagram className="w-6 h-6 text-primary opacity-80 hover:opacity-100 cursor-pointer transition-all" />
+          </a>
+          <a href="https://youtube.com/@stories" target="_blank" rel="noreferrer">
+            <Youtube className="w-6 h-6 text-primary opacity-80 hover:opacity-100 cursor-pointer transition-all" />
+          </a>
+          <a href="mailto:hello@stories.app">
+            <AtSign className="w-6 h-6 text-primary opacity-80 hover:opacity-100 cursor-pointer transition-all" />
+          </a>
         </div>
       </div>
     </footer>

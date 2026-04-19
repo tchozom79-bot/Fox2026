@@ -7,14 +7,15 @@ import { useLocation } from "react-router-dom";
 interface LayoutProps {
   children: ReactNode;
   onOpenGetApp: () => void;
+  canInstall?: boolean;
 }
 
-export function Layout({ children, onOpenGetApp }: LayoutProps) {
+export function Layout({ children, onOpenGetApp, canInstall }: LayoutProps) {
   const location = useLocation();
 
   return (
     <div className="min-h-screen selection:bg-primary-fixed-dim selection:text-on-primary-fixed-variant flex flex-col">
-      <Navigation onOpenGetApp={onOpenGetApp} />
+      <Navigation onOpenGetApp={onOpenGetApp} canInstall={canInstall} />
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           <motion.div

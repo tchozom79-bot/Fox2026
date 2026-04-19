@@ -1,7 +1,16 @@
-import { motion } from "motion/react";
-import { BookOpen, SquarePen } from "lucide-react";
+import { motion, AnimatePresence } from "motion/react";
+import { BookOpen, SquarePen, Check } from "lucide-react";
+import React, { useState } from "react";
 
 export function StorySection() {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 5000);
+  };
+
   return (
     <section id="share-story" className="py-24 bg-surface-bright">
       <div className="container mx-auto px-6 md:px-8 max-w-4xl">
@@ -24,14 +33,38 @@ export function StorySection() {
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          className="bg-surface-container-low p-8 md:p-12 rounded-[2rem] shadow-sm border border-outline-variant/30"
+          className="bg-surface-container-low p-8 md:p-12 rounded-[2rem] shadow-sm border border-outline-variant/30 relative overflow-hidden"
         >
-          <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+          <AnimatePresence>
+            {submitted ? (
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                className="absolute inset-0 bg-surface-container-low z-10 flex flex-col items-center justify-center text-center p-8"
+              >
+                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center text-primary mb-6">
+                  <Check className="w-10 h-10" />
+                </div>
+                <h3 className="text-3xl font-black font-plus-jakarta text-on-background mb-2">Story Received</h3>
+                <p className="text-on-surface-variant">Your contribution has been added to our cinematic tapestry.</p>
+                <button 
+                  onClick={() => setSubmitted(false)}
+                  className="mt-8 text-primary font-bold uppercase tracking-widest text-sm hover:underline"
+                >
+                  Share another story
+                </button>
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
+
+          <form className="space-y-8" onSubmit={handleSubmit}>
             <div className="space-y-2">
               <label className="text-sm font-bold uppercase tracking-widest text-primary ml-2">
                 Your Name or Nickname
               </label>
               <input 
+                required
                 type="text"
                 placeholder="e.g. The Fox Spirit"
                 className="w-full bg-surface-container-highest border-none rounded-xl p-5 focus:ring-2 focus:ring-primary transition-all text-on-background placeholder:text-on-surface-variant/50 outline-none"
@@ -42,6 +75,7 @@ export function StorySection() {
                 The Tale You Carry
               </label>
               <textarea 
+                required
                 placeholder="What responsibility have you embraced?"
                 rows={6}
                 className="w-full bg-surface-container-highest border-none rounded-xl p-5 focus:ring-2 focus:ring-primary transition-all text-on-background placeholder:text-on-surface-variant/50 outline-none resize-none"
@@ -50,6 +84,7 @@ export function StorySection() {
             <motion.button 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              type="submit"
               className="w-full bg-primary text-on-primary py-5 rounded-full font-bold text-xl shadow-lg shadow-primary/30 flex items-center justify-center gap-3 transition-all"
             >
               Submit Story
