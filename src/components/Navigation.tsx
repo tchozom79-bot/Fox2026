@@ -3,7 +3,11 @@ import { motion, AnimatePresence } from "motion/react";
 import { Sparkles, Menu, X } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
-export function Navigation() {
+interface NavigationProps {
+  onOpenGetApp: () => void;
+}
+
+export function Navigation({ onOpenGetApp }: NavigationProps) {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
 
@@ -28,9 +32,10 @@ export function Navigation() {
           <motion.button 
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
+            onClick={onOpenGetApp}
             className="hidden sm:block bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm tracking-wide shadow-lg shadow-primary/20"
           >
-            Join Now
+            Get the App
           </motion.button>
           
           <motion.button 
@@ -90,8 +95,14 @@ export function Navigation() {
               
               <div className="mt-auto space-y-8">
                 <div className="h-px bg-outline-variant/30 w-full" />
-                <button className="w-full bg-primary text-on-primary py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/20">
-                  Join Now
+                <button 
+                  onClick={() => {
+                    setIsOpen(false);
+                    onOpenGetApp();
+                  }}
+                  className="w-full bg-primary text-on-primary py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/20"
+                >
+                  Get the App
                 </button>
                 <div className="flex gap-4 justify-center">
                   <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-60">

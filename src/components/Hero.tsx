@@ -1,7 +1,11 @@
 import { motion } from "motion/react";
-import { PlayCircle } from "lucide-react";
+import { PlayCircle, Smartphone } from "lucide-react";
 
-export function Hero() {
+interface HeroProps {
+  onOpenGetApp: () => void;
+}
+
+export function Hero({ onOpenGetApp }: HeroProps) {
   return (
     <section id="home" className="relative min-h-[80vh] flex items-center pt-20 overflow-hidden">
       <div className="absolute inset-0 z-0">
@@ -38,6 +42,17 @@ export function Hero() {
               className="bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/30 transition-all"
             >
               Start Your Story
+            </motion.button>
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={onOpenGetApp}
+              className="bg-surface-container-highest text-on-background px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 group transition-all border border-outline-variant/30"
+            >
+              Get the App
+              <motion.div animate={{ y: [0, -4, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
+                <Smartphone className="w-5 h-5 text-primary" />
+              </motion.div>
             </motion.button>
             <motion.button 
               whileHover={{ scale: 1.05 }}

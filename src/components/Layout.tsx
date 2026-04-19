@@ -6,14 +6,15 @@ import { useLocation } from "react-router-dom";
 
 interface LayoutProps {
   children: ReactNode;
+  onOpenGetApp: () => void;
 }
 
-export function Layout({ children }: LayoutProps) {
+export function Layout({ children, onOpenGetApp }: LayoutProps) {
   const location = useLocation();
 
   return (
     <div className="min-h-screen selection:bg-primary-fixed-dim selection:text-on-primary-fixed-variant flex flex-col">
-      <Navigation />
+      <Navigation onOpenGetApp={onOpenGetApp} />
       <main className="flex-grow">
         <AnimatePresence mode="wait">
           <motion.div

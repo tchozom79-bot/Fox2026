@@ -1,10 +1,14 @@
 import { Hero } from "../components/Hero";
 import { OriginSection } from "../components/OriginSection";
 
-export default function HomePage() {
+interface HomePageProps {
+  onOpenGetApp: () => void;
+}
+
+export default function HomePage({ onOpenGetApp }: HomePageProps) {
   return (
     <>
-      <Hero />
+      <Hero onOpenGetApp={onOpenGetApp} />
       <OriginSection />
     </>
   );
