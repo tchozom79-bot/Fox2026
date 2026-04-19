@@ -7,6 +7,18 @@ export function VisionarySection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const message = {
+      name: formData.get('name'),
+      email: formData.get('email'),
+      message: formData.get('message'),
+      timestamp: new Date().toISOString()
+    };
+    
+    // Save to localStorage
+    const existingMessages = JSON.parse(localStorage.getItem('user_messages') || '[]');
+    localStorage.setItem('user_messages', JSON.stringify([...existingMessages, message]));
+
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 5000);
   };
@@ -100,6 +112,7 @@ export function VisionarySection() {
                     </label>
                     <input 
                       required
+                      name="name"
                       type="text"
                       className="w-full bg-surface-container-high border-none rounded-xl p-4 focus:ring-2 focus:ring-primary transition-all outline-none"
                       placeholder="John Doe"
@@ -111,6 +124,7 @@ export function VisionarySection() {
                     </label>
                     <input 
                       required
+                      name="email"
                       type="email"
                       className="w-full bg-surface-container-high border-none rounded-xl p-4 focus:ring-2 focus:ring-primary transition-all outline-none"
                       placeholder="john@example.com"
@@ -123,6 +137,7 @@ export function VisionarySection() {
                   </label>
                   <textarea 
                     required
+                    name="message"
                     rows={4}
                     className="w-full bg-surface-container-high border-none rounded-xl p-4 focus:ring-2 focus:ring-primary transition-all outline-none resize-none"
                     placeholder="How can we help you?"

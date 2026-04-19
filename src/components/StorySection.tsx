@@ -7,6 +7,17 @@ export function StorySection() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const formData = new FormData(e.target as HTMLFormElement);
+    const story = {
+      name: formData.get('name'),
+      tale: formData.get('tale'),
+      timestamp: new Date().toISOString()
+    };
+    
+    // Save to localStorage
+    const existingStories = JSON.parse(localStorage.getItem('user_stories') || '[]');
+    localStorage.setItem('user_stories', JSON.stringify([...existingStories, story]));
+
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 5000);
   };
@@ -59,28 +70,30 @@ export function StorySection() {
           </AnimatePresence>
 
           <form className="space-y-8" onSubmit={handleSubmit}>
-            <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-widest text-primary ml-2">
-                Your Name or Nickname
-              </label>
-              <input 
-                required
-                type="text"
-                placeholder="e.g. The Fox Spirit"
-                className="w-full bg-surface-container-highest border-none rounded-xl p-5 focus:ring-2 focus:ring-primary transition-all text-on-background placeholder:text-on-surface-variant/50 outline-none"
-              />
-            </div>
-            <div className="space-y-2">
-              <label className="text-sm font-bold uppercase tracking-widest text-primary ml-2">
-                The Tale You Carry
-              </label>
-              <textarea 
-                required
-                placeholder="What responsibility have you embraced?"
-                rows={6}
-                className="w-full bg-surface-container-highest border-none rounded-xl p-5 focus:ring-2 focus:ring-primary transition-all text-on-background placeholder:text-on-surface-variant/50 outline-none resize-none"
-              />
-            </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold uppercase tracking-widest text-primary ml-2">
+                    Your Name or Nickname
+                  </label>
+                  <input 
+                    required
+                    name="name"
+                    type="text"
+                    placeholder="e.g. The Fox Spirit"
+                    className="w-full bg-surface-container-highest border-none rounded-xl p-5 focus:ring-2 focus:ring-primary transition-all text-on-background placeholder:text-on-surface-variant/50 outline-none"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-sm font-bold uppercase tracking-widest text-primary ml-2">
+                    The Tale You Carry
+                  </label>
+                  <textarea 
+                    required
+                    name="tale"
+                    placeholder="What responsibility have you embraced?"
+                    rows={6}
+                    className="w-full bg-surface-container-highest border-none rounded-xl p-5 focus:ring-2 focus:ring-primary transition-all text-on-background placeholder:text-on-surface-variant/50 outline-none resize-none"
+                  />
+                </div>
             <motion.button 
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
