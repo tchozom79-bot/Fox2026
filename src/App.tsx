@@ -5,6 +5,7 @@
 
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useRegisterSW } from 'virtual:pwa-register/react';
 import { Layout } from "./components/Layout";
 import HomePage from "./pages/HomePage";
 import FeaturePage from "./pages/FeaturePage";
@@ -15,6 +16,16 @@ import { GetAppModal } from "./components/GetAppModal";
 export default function App() {
   const [isGetAppOpen, setIsGetAppOpen] = useState(false);
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+
+  // Register Service Worker
+  useRegisterSW({
+    onRegistered(r) {
+      console.log('SW Registered: ' + r);
+    },
+    onRegisterError(error) {
+      console.log('SW registration error', error);
+    }
+  });
 
   useEffect(() => {
     const handler = (e: any) => {

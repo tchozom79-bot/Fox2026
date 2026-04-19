@@ -36,7 +36,7 @@ export function OriginSection() {
             </h2>
             <div className="space-y-6 text-lg text-on-surface-variant leading-relaxed">
               <p>
-                Born from a moment of chance and destiny, the story of Peter Parker—a young student forever changed by a radioactive bite—redefined what it means to be a hero. It wasn't just about the strength of a spider, but the weight of human choice.
+                Born from a moment of chance and destiny, the story of Tashi, a young student forever changed by a radioactive bite, redefined what it means to be a hero. It wasn't just about the strength of a spider, but the weight of human choice.
               </p>
               <p>
                 This legacy of "Great Responsibility" has grown into a global cultural phenomenon, bridging the gap between colorful comic panels and sophisticated cinematic narratives. We capture that same magic in our design ethos.

@@ -1,10 +1,10 @@
-import { Instagram, Youtube, AtSign, Sparkles } from "lucide-react";
+import { Youtube, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function Footer() {
   const links = [
     { name: "Home", href: "/" },
-    { name: "Feature", href: "/feature" },
+    { name: "Our Story", href: "/feature" },
     { name: "About Them", href: "/about" },
     { name: "Privacy", href: "/privacy" },
   ];
@@ -39,14 +39,8 @@ export function Footer() {
         </nav>
 
         <div className="flex gap-6">
-          <a href="https://instagram.com/stories" target="_blank" rel="noreferrer">
-            <Instagram className="w-6 h-6 text-primary opacity-80 hover:opacity-100 cursor-pointer transition-all" />
-          </a>
           <a href="https://youtube.com/@stories" target="_blank" rel="noreferrer">
             <Youtube className="w-6 h-6 text-primary opacity-80 hover:opacity-100 cursor-pointer transition-all" />
-          </a>
-          <a href="mailto:hello@stories.app">
-            <AtSign className="w-6 h-6 text-primary opacity-80 hover:opacity-100 cursor-pointer transition-all" />
           </a>
         </div>
       </div>

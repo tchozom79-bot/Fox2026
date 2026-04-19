@@ -1,6 +1,4 @@
 import { motion } from "motion/react";
-import { BookOpen, Smartphone, Rocket } from "lucide-react";
-import { Link } from "react-router-dom";
 
 interface HeroProps {
   onOpenGetApp: () => void;
@@ -34,42 +32,8 @@ export function Hero({ onOpenGetApp, canInstall }: HeroProps) {
             With great power comes <span className="text-primary italic">great design.</span>
           </h1>
           <p className="text-xl text-on-surface-variant font-medium max-w-lg mb-10 leading-relaxed">
-            Journey through the intersection of myth and modernity. Every brushstroke tells a story of responsibility and heroism.
+            Journey through the intersection of myth and modernity. Every letter tells a story of responsibility and heroism.
           </p>
-          
-          <div className="flex flex-wrap gap-4">
-            <Link to="/story">
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-primary text-on-primary px-8 py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/30 transition-all flex items-center gap-2"
-              >
-                Start Your Story
-                <Rocket className="w-5 h-5" />
-              </motion.button>
-            </Link>
-            <motion.button 
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={onOpenGetApp}
-              className="bg-surface-container-highest text-on-background px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 group transition-all border border-outline-variant/30"
-            >
-              {canInstall ? "Install stories" : "Get stories"}
-              <motion.div animate={{ y: [0, -4, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
-                <Smartphone className="w-5 h-5 text-primary" />
-              </motion.div>
-            </motion.button>
-            <Link to="/feature">
-              <motion.button 
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 group transition-all"
-              >
-                Read Our Story
-                <BookOpen className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
-              </motion.button>
-            </Link>
-          </div>
         </motion.div>
       </div>
     </section>

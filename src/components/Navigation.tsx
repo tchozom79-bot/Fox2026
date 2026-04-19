@@ -14,7 +14,7 @@ export function Navigation({ onOpenGetApp, canInstall }: NavigationProps) {
 
   const links = [
     { name: "Home", href: "/" },
-    { name: "Feature", href: "/feature" },
+    { name: "Our Story", href: "/feature" },
     { name: "Your Story", href: "/story" },
     { name: "Contact", href: "/about" },
   ];
@@ -104,16 +104,6 @@ export function Navigation({ onOpenGetApp, canInstall }: NavigationProps) {
               </nav>
               
               <div className="mt-auto space-y-8">
-                <div className="h-px bg-outline-variant/30 w-full" />
-                <button 
-                  onClick={() => {
-                    setIsOpen(false);
-                    onOpenGetApp();
-                  }}
-                  className="w-full bg-primary text-on-primary py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/20"
-                >
-                  {canInstall ? "Install stories" : "Get the App"}
-                </button>
                 <div className="flex gap-4 justify-center">
                   <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-60">
                     © 2024 Fox and the Lover

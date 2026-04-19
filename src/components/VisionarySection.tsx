@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { Mail, Share2, Globe, CheckCircle2, Send, Check } from "lucide-react";
+import { Mail, CheckCircle2, Send, Check } from "lucide-react";
 import React, { useState } from "react";
 
 export function VisionarySection() {
@@ -47,26 +47,6 @@ export function VisionarySection() {
               <p className="text-lg text-on-surface-variant leading-relaxed">
                 I specialize in crafting digital experiences that blend artistic intuition with technical precision. With a focus on visual storytelling and atmospheric depth, I transform interfaces into immersive cinematic journeys that resonate with every user.
               </p>
-            </div>
-            <div className="flex gap-4">
-              <motion.a 
-                href="https://instagram.com" 
-                target="_blank"
-                rel="noreferrer"
-                whileHover={{ y: -3 }}
-                className="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all"
-              >
-                <Share2 className="w-5 h-5" />
-              </motion.a>
-              <motion.a 
-                href="https://stories.app" 
-                target="_blank"
-                rel="noreferrer"
-                whileHover={{ y: -3 }}
-                className="w-12 h-12 rounded-full bg-surface-container-high flex items-center justify-center text-primary hover:bg-primary hover:text-on-primary transition-all"
-              >
-                <Globe className="w-5 h-5" />
-              </motion.a>
             </div>
           </div>
 
