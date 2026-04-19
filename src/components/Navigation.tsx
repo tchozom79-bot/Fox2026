@@ -16,7 +16,7 @@ export function Navigation({ onOpenGetApp, canInstall }: NavigationProps) {
     { name: "Home", href: "/" },
     { name: "Feature", href: "/feature" },
     { name: "Your Story", href: "/story" },
-    { name: "About Them", href: "/about" },
+    { name: "Contact", href: "/about" },
   ];
 
   return (
