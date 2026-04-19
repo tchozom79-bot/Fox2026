@@ -1,4 +1,4 @@
-import { Instagram, Youtube, AtSign } from "lucide-react";
+import { Instagram, Youtube, AtSign, Sparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function Footer() {
@@ -13,11 +13,16 @@ export function Footer() {
     <footer className="bg-surface-container-low dark:bg-inverse-surface w-full rounded-t-[2rem]">
       <div className="flex flex-col md:flex-row justify-between items-center px-8 md:px-12 py-16 gap-8 max-w-7xl mx-auto">
         <div className="flex flex-col gap-4 text-center md:text-left">
-          <Link to="/" className="text-lg font-bold text-primary font-plus-jakarta tracking-tight active:scale-95 transition-transform inline-block">
-            Fox and the Lover
+          <Link to="/" className="flex items-center gap-2 active:scale-95 transition-transform group mx-auto md:mx-0">
+            <div className="bg-linear-to-tr from-primary to-primary-container p-1.5 rounded-lg text-on-primary">
+              <Sparkles className="w-4 h-4" />
+            </div>
+            <span className="text-lg font-bold text-primary font-plus-jakarta tracking-tighter">
+              stories
+            </span>
           </Link>
           <p className="text-on-background/60 text-sm uppercase tracking-widest font-manrope">
-            © 2024 Fox and the Lover. A Cinematic Tale.
+            © 2026 Stories. A Cinematic Tale.
           </p>
         </div>
 

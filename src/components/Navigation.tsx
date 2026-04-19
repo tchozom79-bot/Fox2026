@@ -21,10 +21,19 @@ export function Navigation({ onOpenGetApp }: NavigationProps) {
   return (
     <header className="sticky top-0 z-50 w-full bg-surface-bright/80 backdrop-blur-xl shadow-sm">
       <div className="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
-        <Link to="/" className="flex items-center gap-3 active:scale-95 transition-transform">
-          <Sparkles className="text-primary w-8 h-8" />
+        <Link to="/" className="flex items-center gap-2 active:scale-95 transition-transform group">
+          <div className="relative w-10 h-10 flex items-center justify-center">
+            <motion.div 
+              animate={{ rotate: [0, 5, -5, 0] }}
+              transition={{ repeat: Infinity, duration: 4 }}
+              className="absolute inset-0 bg-linear-to-tr from-[#9a4600] to-[#ffb68d] rounded-xl blur-lg opacity-20 group-hover:opacity-40 transition-opacity" 
+            />
+            <div className="relative bg-linear-to-tr from-primary to-primary-container p-2 rounded-xl text-on-primary">
+              <Sparkles className="w-6 h-6" />
+            </div>
+          </div>
           <span className="text-2xl font-black text-primary tracking-tighter font-plus-jakarta">
-            Fox and the Lover
+            stories
           </span>
         </Link>
         

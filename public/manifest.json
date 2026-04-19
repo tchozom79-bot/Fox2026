@@ -1,0 +1,21 @@
+{
+  "name": "Stories",
+  "short_name": "stories",
+  "description": "A cinematic storytelling platform.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fff8ef",
+  "theme_color": "#9a4600",
+  "icons": [
+    {
+      "src": "https://picsum.photos/seed/stories/192/192",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://picsum.photos/seed/stories/512/512",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
