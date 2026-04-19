@@ -47,6 +47,10 @@ export function VisionarySection() {
               <p className="text-lg text-on-surface-variant leading-relaxed">
                 I specialize in crafting digital experiences that blend artistic intuition with technical precision. With a focus on visual storytelling and atmospheric depth, I transform interfaces into immersive cinematic journeys that resonate with every user.
               </p>
+              <div className="mt-8 flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-60">
+                <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+                No Accounts • Everything is stored locally
+              </div>
             </div>
           </div>
 
