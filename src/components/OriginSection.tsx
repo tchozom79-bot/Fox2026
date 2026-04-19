@@ -42,21 +42,6 @@ export function OriginSection() {
                 This legacy of "Great Responsibility" has grown into a global cultural phenomenon, bridging the gap between colorful comic panels and sophisticated cinematic narratives. We capture that same magic in our design ethos.
               </p>
             </div>
-
-            <div className="grid grid-cols-3 gap-4 pt-4">
-              {[
-                { label: "Debut", value: "1962" },
-                { label: "Years", value: "60+" },
-                { label: "Impact", value: "∞" },
-              ].map((stat, idx) => (
-                <div key={idx} className="p-4 rounded-xl bg-surface-container-high text-center">
-                  <p className="text-2xl font-black text-primary">{stat.value}</p>
-                  <p className="text-xs uppercase font-bold tracking-widest text-on-surface-variant opacity-60">
-                    {stat.label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
         </div>
       </div>

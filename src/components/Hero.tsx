@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { PlayCircle, Smartphone, Rocket } from "lucide-react";
+import { BookOpen, Smartphone, Rocket } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface HeroProps {
@@ -65,8 +65,8 @@ export function Hero({ onOpenGetApp, canInstall }: HeroProps) {
                 whileTap={{ scale: 0.95 }}
                 className="bg-secondary-container text-on-secondary-container px-8 py-4 rounded-full font-bold text-lg flex items-center gap-2 group transition-all"
               >
-                Watch Trailer
-                <PlayCircle className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                Read Our Story
+                <BookOpen className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
               </motion.button>
             </Link>
           </div>
