@@ -25,28 +25,28 @@ export function GetAppModal({ isOpen, onClose, onInstall, canInstall }: GetAppMo
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="relative bg-surface-bright w-full max-w-md rounded-[2rem] shadow-2xl overflow-hidden border border-outline-variant/20"
+            className="relative bg-surface-bright w-full max-w-md rounded-[2.5rem] shadow-2xl overflow-hidden border border-outline-variant/20"
           >
             <button 
               onClick={onClose}
-              className="absolute top-4 right-4 p-2 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors z-10"
+              className="absolute top-6 right-6 p-2 rounded-full bg-surface-container-high text-on-surface hover:bg-surface-container-highest transition-colors z-10"
             >
               <X className="w-5 h-5" />
             </button>
 
-            <div className="p-8 text-center space-y-6">
+            <div className="p-10 text-center space-y-8">
               <div className="flex justify-center">
                 <div className="relative w-20 h-20 rounded-2xl bg-primary flex items-center justify-center text-on-primary shadow-lg">
                   <Smartphone className="w-10 h-10" />
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <h2 className="text-3xl font-black text-on-background tracking-tighter font-plus-jakarta">
-                  Install stories
+              <div className="space-y-4">
+                <h2 className="text-4xl font-black text-on-background tracking-tighter font-plus-jakarta lowercase">
+                  install stories
                 </h2>
-                <p className="text-on-surface-variant font-medium">
-                  Add the app to your home screen for the best cinematic experience.
+                <p className="text-on-surface-variant font-medium text-lg leading-relaxed">
+                  Directly install the application on your mobile or tablet for an immersive experience.
                 </p>
               </div>
 
@@ -55,28 +55,41 @@ export function GetAppModal({ isOpen, onClose, onInstall, canInstall }: GetAppMo
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={onInstall}
-                  className="w-full bg-primary text-on-primary py-4 rounded-xl font-bold text-lg shadow-lg"
+                  className="w-full bg-primary text-on-primary py-5 rounded-2xl font-bold text-xl shadow-lg shadow-primary/30 flex items-center justify-center gap-3"
                 >
-                  Confirm Installation
+                  <Download className="w-5 h-5" />
+                  Install Directly
                 </motion.button>
               ) : (
-                <div className="bg-surface-container-high p-6 rounded-2xl border border-outline-variant/20 space-y-4 text-left">
-                  <p className="font-bold text-on-background flex items-center gap-2">
-                    <Download className="w-4 h-4 text-primary" />
-                    How to Install:
-                  </p>
-                  <ul className="space-y-2 text-sm text-on-surface-variant">
-                    <li className="flex gap-3">
-                      <span className="font-bold text-primary">1.</span>
-                      <span>Open your browser's <span className="text-on-background font-semibold">Share</span> or <span className="text-on-background font-semibold">Menu</span>.</span>
-                    </li>
-                    <li className="flex gap-3">
-                      <span className="font-bold text-primary">2.</span>
-                      <span>Select <span className="text-on-background font-semibold">"Add to Home Screen"</span>.</span>
-                    </li>
-                  </ul>
+                <div className="bg-surface-container-high p-8 rounded-3xl border border-outline-variant/20 space-y-6 text-left">
+                  <div className="flex items-center gap-4">
+                    <div className="bg-primary/10 p-2 rounded-lg text-primary">
+                      <Download className="w-5 h-5" />
+                    </div>
+                    <div>
+                      <p className="font-bold text-on-background">How to Install</p>
+                      <p className="text-xs text-on-surface-variant">Browser A2HS support needed</p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 gap-4">
+                    <div className="flex items-start gap-4">
+                      <div className="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">1</div>
+                      <p className="text-sm text-on-surface-variant">Tap the <span className="font-bold text-on-background">Share</span> or <span className="font-bold text-on-background">Menu</span> button.</p>
+                    </div>
+                    <div className="flex items-start gap-4">
+                      <div className="w-6 h-6 rounded-full bg-primary text-on-primary flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">2</div>
+                      <p className="text-sm text-on-surface-variant">Select <span className="font-bold text-on-background">"Add to Home Screen"</span> to install.</p>
+                    </div>
+                  </div>
                 </div>
               )}
+
+              <div className="pt-2">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-on-surface-variant opacity-30">
+                  direct pwa installation • build 2.4.0
+                </p>
+              </div>
             </div>
           </motion.div>
         </div>
