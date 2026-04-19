@@ -1,0 +1,108 @@
+import { useState } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { Sparkles, Menu, X } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+
+export function Navigation() {
+  const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+
+  const links = [
+    { name: "Home", href: "/" },
+    { name: "Feature", href: "/feature" },
+    { name: "Your Story", href: "/story" },
+    { name: "About Them", href: "/about" },
+  ];
+
+  return (
+    <header className="sticky top-0 z-50 w-full bg-surface-bright/80 backdrop-blur-xl shadow-sm">
+      <div className="flex justify-between items-center px-6 md:px-8 py-4 max-w-7xl mx-auto">
+        <Link to="/" className="flex items-center gap-3 active:scale-95 transition-transform">
+          <Sparkles className="text-primary w-8 h-8" />
+          <span className="text-2xl font-black text-primary tracking-tighter font-plus-jakarta">
+            Fox and the Lover
+          </span>
+        </Link>
+        
+        <div className="flex items-center gap-4">
+          <motion.button 
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="hidden sm:block bg-primary text-on-primary px-6 py-2.5 rounded-full font-bold text-sm tracking-wide shadow-lg shadow-primary/20"
+          >
+            Join Now
+          </motion.button>
+          
+          <motion.button 
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.9 }}
+            onClick={() => setIsOpen(!isOpen)}
+            className="p-2 text-primary bg-surface-container-high rounded-full hover:bg-surface-container-highest transition-colors relative z-50"
+          >
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </motion.button>
+        </div>
+      </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-on-background/10 backdrop-blur-sm z-40 h-screen"
+            />
+            
+            {/* Menu */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 w-full max-w-sm h-screen bg-surface-bright shadow-cinematic z-40 p-12 flex flex-col pt-32"
+            >
+              <nav className="flex flex-col gap-8">
+                {links.map((link, idx) => {
+                  const isActive = location.pathname === link.href;
+                  return (
+                    <motion.div
+                      key={link.name}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 * idx }}
+                    >
+                      <Link
+                        to={link.href}
+                        onClick={() => setIsOpen(false)}
+                        className={`text-4xl font-black transition-colors font-plus-jakarta tracking-tighter ${
+                          isActive ? "text-primary" : "text-on-background hover:text-primary"
+                        }`}
+                      >
+                        {link.name}
+                      </Link>
+                    </motion.div>
+                  );
+                })}
+              </nav>
+              
+              <div className="mt-auto space-y-8">
+                <div className="h-px bg-outline-variant/30 w-full" />
+                <button className="w-full bg-primary text-on-primary py-4 rounded-full font-bold text-lg shadow-xl shadow-primary/20">
+                  Join Now
+                </button>
+                <div className="flex gap-4 justify-center">
+                  <span className="text-xs font-bold uppercase tracking-widest text-on-surface-variant opacity-60">
+                    © 2024 Fox and the Lover
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+    </header>
+  );
+}

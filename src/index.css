@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap');
+
+@theme {
+  --font-plus-jakarta: "Plus Jakarta Sans", sans-serif;
+  --font-manrope: "Manrope", sans-serif;
+
+  --color-surface-bright: #fff8ef;
+  --color-on-background: #1e1b13;
+  --color-primary: #9a4600;
+  --color-primary-container: #e87a30;
+  --color-secondary: #446081;
+  --color-secondary-container: #bddaff;
+  --color-on-secondary-container: #435f80;
+  --color-tertiary-container: #d28648;
+  --color-on-tertiary-container: #4e2500;
+  --color-outline-variant: #ddc1b3;
+  --color-on-surface-variant: #564338;
+  --color-surface-container-low: #fbf3e4;
+  --color-surface-container-high: #efe7d9;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-container-highest: #e9e2d3;
+  --color-inverse-surface: #343026;
+  --color-inverse-on-surface: #f8f0e1;
+  --color-primary-fixed-dim: #ffb68d;
+  --color-on-primary-fixed-variant: #763300;
+  --color-on-primary: #ffffff;
+  --color-on-secondary: #ffffff;
+
+  --shadow-cinematic: 0 20px 40px -10px rgba(30, 27, 19, 0.08);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-manrope bg-surface-bright text-on-background antialiased;
+  }
+}
